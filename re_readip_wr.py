@@ -1,0 +1,16 @@
+import re
+f1=open("vpclog.csv","r+")
+f2=open("list_ip.txt","a+")
+lines=f1.read()
+print(type(lines))
+#ipList= re.findall(r'[0-2]{1,3}\.\d{3}\.\d{3}\.\d{3}',lines)
+#ipList= re.findall(r'\d+\.\d+\.\d+\.\d+',lines)
+#ipList= re.findall(r'\d+',lines)
+ipList= re.findall(r'\d+\.\d+\.\d+\.\d+',lines)
+print(ipList)
+for i in ipList:
+    f2.write(i)
+    f2.write('\n')
+print("\n .... ip addresses copied to destination file Successful.....\n")    
+f1.close()
+f2.close()
